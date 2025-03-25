@@ -1,0 +1,100 @@
+# README: Steps to Follow Before Running the Program
+
+## 1. Install Required Software
+- Install **Python (3.x version)** from [python.org](https://www.python.org/downloads/)
+- Install **Streamlit** if needed:
+  ```bash
+  pip install streamlit
+  ```
+- Install other required packages:
+  ```bash
+  pip install -r requirements.txt
+  ```
+
+## 2. Run as Administrator (For Windows Users)
+Some operations need admin rights:
+- **Run Command Prompt as Administrator:**
+  - Press `Win + R`, type `cmd`, and press `Ctrl + Shift + Enter`
+  - Navigate to the project folder using `cd path/to/project`
+  - Run the Python script:
+    ```bash
+    python script.py
+    ```
+
+## 3. Fix "No Permission" Error When Editing Hosts File
+If you can't modify the `hosts` file, try these solutions:
+
+### Method 1: Open Notepad as Administrator
+1. Search for **Notepad**, right-click, and choose **Run as Administrator**.
+2. Open the `hosts` file from:
+   ```
+   C:\Windows\System32\drivers\etc\hosts
+   ```
+3. Make your changes and save.
+
+### Method 2: Change File Permissions
+1. Right-click `hosts` file → **Properties** → **Security** tab → **Edit**.
+2. Select your user → Check **Full Control** → **Apply**.
+3. Try editing and saving the file again.
+
+### Method 3: Copy, Edit, and Replace
+1. Copy `hosts` file to Desktop, edit it, and save.
+2. Move it back to `C:\Windows\System32\drivers\etc\`, replacing the old file.
+
+### Method 4: Use Command Prompt (CMD)
+1. Open **CMD as Administrator**.
+2. Run this command:
+   ```cmd
+   notepad C:\Windows\System32\drivers\etc\hosts
+   ```
+3. Edit and save the file.
+
+### Method 5: Use PowerShell
+1. Open **PowerShell as Administrator**.
+2. Run this command:
+   ```powershell
+   Start-Process notepad.exe -ArgumentList "C:\Windows\System32\drivers\etc\hosts" -Verb RunAs
+   ```
+3. Edit and save.
+
+### Method 6: Use Notepad++
+1. Install **Notepad++**.
+2. Open Notepad++ as Administrator.
+3. Open `hosts` file, make changes, and save.
+
+### Method 7: Take Ownership of Hosts File
+1. Open **CMD as Administrator**.
+2. Run these commands:
+   ```cmd
+   takeown /f C:\Windows\System32\drivers\etc\hosts
+   icacls C:\Windows\System32\drivers\etc\hosts /grant administrators:F
+   ```
+3. Edit and save the file.
+4. Restore default permissions using:
+   ```cmd
+   icacls C:\Windows\System32\drivers\etc\hosts /reset
+   ```
+
+## 4. Running the Program
+- If using **Streamlit**:
+  ```bash
+  streamlit run app.py
+  ```
+- If using a standalone Python script:
+  ```bash
+  python script.py
+  ```
+
+## 5. Troubleshooting
+- **Permission errors?** Run as Administrator.
+- **Missing dependencies?** Run `pip install -r requirements.txt`.
+- **Changes not applied?** Restart your PC and try again.
+
+## 6. Future Improvements
+- Automate admin access.
+- Improve error handling.
+- Add a user-friendly interface.
+
+---
+Following these steps will ensure everything runs smoothly!
+
